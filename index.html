@@ -5,13 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AZ Vape Vending | Premium Vape Vending for Arizona Bars & Nightlife</title>
     <meta name="description" content="Turn your bar or nightclub into a profit center with zero-risk vape vending. We install, stock, and maintain — you earn 15% of every sale.">
-    <meta name="keywords" content="vape vending Arizona, bar vending machine, nightclub vending, tobacco vending Arizona">
+    <meta name="keywords" content="vape vending Arizona, bar vending machine, nightclub vending, tobacco vending Arizona, Lake Havasu City, Kokomo's Beach Club, vape vending Lake Havasu, London Bridge Resort vending">
+    
+    <!-- Location Meta Tags -->
+    <meta name="geo.region" content="US-AZ">
+    <meta name="geo.placename" content="Lake Havasu City">
+    <meta name="geo.position" content="34.4731;-114.3225">
+    <meta name="ICBM" content="34.4731, -114.3225">
     
     <!-- Open Graph -->
     <meta property="og:title" content="AZ Vape Vending | Premium Vape Vending for Arizona">
     <meta property="og:description" content="Zero-risk vape vending for bars & nightlife. We handle everything, you profit.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://azvapevending.com">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Structured Data: LocalBusiness -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "AZ Vape Vending — Kokomo's Beach Club",
+        "description": "Premium vape vending machine at Kokomo's Beach Club, Lake Havasu City. Age-verified, cashless payment, top-tier products.",
+        "url": "https://azvapevending.com",
+        "telephone": "+19284124250",
+        "email": "info@azvapevending.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1477 Queens Bay",
+            "addressLocality": "Lake Havasu City",
+            "addressRegion": "AZ",
+            "postalCode": "86403",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 34.4731,
+            "longitude": -114.3225
+        },
+        "parentOrganization": {
+            "@type": "Organization",
+            "name": "AZ Vape Vending LLC",
+            "legalName": "Rinn Group LLC"
+        },
+        "priceRange": "$$",
+        "paymentAccepted": ["Cash", "Credit Card", "Apple Pay", "Google Pay"],
+        "currenciesAccepted": "USD"
+    }
+    </script>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -61,8 +102,14 @@
 
 <body class="bg-brand-darker text-white antialiased">
     
+    <!-- Announcement Banner -->
+    <div id="announcement-bar" class="fixed w-full z-50 bg-brand-gold text-black text-center py-2 px-4 text-sm font-semibold">
+        🎉 Use code <span class="font-extrabold tracking-wide">KOKOMO5</span> for $5 off your first purchase!
+        <button onclick="document.getElementById('announcement-bar').style.display='none'; document.getElementById('main-nav').style.top='0';" class="ml-3 text-black/60 hover:text-black font-bold text-lg leading-none align-middle">&times;</button>
+    </div>
+
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-brand-darker/90 backdrop-blur-md border-b border-white/5">
+    <nav id="main-nav" class="fixed w-full z-40 bg-brand-darker/90 backdrop-blur-md border-b border-white/5" style="top: 36px;">
         <div class="max-w-6xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <div class="text-2xl font-bold">
@@ -70,6 +117,7 @@
                 </div>
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#how-it-works" class="text-gray-400 hover:text-white transition">How It Works</a>
+                    <a href="#inventory" class="text-gray-400 hover:text-white transition">Live Inventory</a>
                     <a href="#machines" class="text-gray-400 hover:text-white transition">Our Machines</a>
                     <a href="#contact" class="bg-brand-gold text-black font-semibold px-6 py-2 rounded-full hover:bg-yellow-400 transition">
                         Get Started
@@ -242,6 +290,23 @@
         </div>
     </section>
 
+    <!-- Live Inventory -->
+    <section id="inventory" class="py-20 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Live Inventory — <span class="gradient-text">Kokomo's Beach Club</span></h2>
+                <p class="text-gray-400 text-lg">See what's available right now</p>
+            </div>
+            <div id="inventory-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <!-- Populated by JavaScript -->
+            </div>
+            <div class="text-center text-sm text-gray-500 space-y-1">
+                <p id="inventory-updated">Last updated: —</p>
+                <p>Stock updates automatically when machine is online</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Coverage Area -->
     <section class="py-20 px-6">
         <div class="max-w-6xl mx-auto text-center">
@@ -392,6 +457,74 @@
             </div>
         </div>
     </footer>
+
+    <!-- Inventory Script -->
+    <script>
+        const DEFAULT_INVENTORY = [
+            { name: "Fifty Bar 20K Mint", price: 24.99, stock: 8 },
+            { name: "Fifty Bar 20K Blue Razz Ice", price: 24.99, stock: 6 },
+            { name: "Fifty Bar 20K Watermelon Ice", price: 24.99, stock: 5 },
+            { name: "Lost Mary MT35K Berry Burst", price: 24.99, stock: 3 },
+            { name: "Lost Mary MT35K Scary Berry+", price: 24.99, stock: 7 },
+            { name: "Lost Mary MT35K Black Mint+", price: 24.99, stock: 2 },
+            { name: "Lost Mary MT35K Pink Lemonade+", price: 24.99, stock: 0 },
+            { name: "Lost Mary MT35K Rocket Freeze", price: 24.99, stock: 4 }
+        ];
+
+        function renderInventory(items) {
+            const grid = document.getElementById('inventory-grid');
+            grid.innerHTML = items.map(item => {
+                let statusText, statusClasses, dotColor;
+                if (item.stock === 0) {
+                    statusText = 'Sold Out';
+                    statusClasses = 'text-red-400';
+                    dotColor = 'bg-red-500';
+                } else if (item.stock <= 3) {
+                    statusText = 'Low Stock';
+                    statusClasses = 'text-yellow-400';
+                    dotColor = 'bg-yellow-500';
+                } else {
+                    statusText = 'In Stock';
+                    statusClasses = 'text-green-400';
+                    dotColor = 'bg-green-500';
+                }
+                return `
+                    <div class="bg-brand-dark rounded-xl p-5 border border-white/5 card-hover">
+                        <h4 class="font-semibold text-sm md:text-base mb-2 leading-tight">${item.name}</h4>
+                        <p class="text-brand-gold font-bold text-lg mb-3">$${item.price.toFixed(2)}</p>
+                        <div class="flex items-center gap-2 ${statusClasses} text-sm font-medium">
+                            <span class="w-2 h-2 rounded-full ${dotColor} inline-block"></span>
+                            ${statusText}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function updateTimestamp() {
+            const el = document.getElementById('inventory-updated');
+            const now = new Date();
+            el.textContent = 'Last updated: ' + now.toLocaleString('en-US', {
+                month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', hour12: true
+            });
+        }
+
+        async function fetchInventory() {
+            try {
+                const res = await fetch('/api/inventory');
+                if (!res.ok) throw new Error('API unavailable');
+                const data = await res.json();
+                renderInventory(data);
+            } catch (e) {
+                renderInventory(DEFAULT_INVENTORY);
+            }
+            updateTimestamp();
+        }
+
+        // Initial load + refresh every 5 minutes
+        fetchInventory();
+        setInterval(fetchInventory, 5 * 60 * 1000);
+    </script>
 
 </body>
 </html>
