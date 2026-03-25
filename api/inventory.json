@@ -1,0 +1,79 @@
+{
+  "machines": {
+    "LHC-KOKOMOS-01": {
+      "venue": "Kokomo's Beach Club",
+      "city": "Lake Havasu City",
+      "address": "1477 Queens Bay, London Bridge Resort",
+      "machine_status": "offline",
+      "products": [
+        {
+          "name": "Blue Razz Ice FRUITIA X Fifty Bar 20K",
+          "price": 24.99,
+          "stock": 8,
+          "max_stock": 8,
+          "status": "in_stock",
+          "aisle": 11
+        },
+        {
+          "name": "Watermelon Ice FRUITIA X Fifty Bar 20K",
+          "price": 24.99,
+          "stock": 8,
+          "max_stock": 8,
+          "status": "in_stock",
+          "aisle": 12
+        },
+        {
+          "name": "Mint Fifty Bar 20K",
+          "price": 24.99,
+          "stock": 8,
+          "max_stock": 8,
+          "status": "in_stock",
+          "aisle": 13
+        },
+        {
+          "name": "Berry Burst LOST MARY MT35K TURBO",
+          "price": 24.99,
+          "stock": 8,
+          "max_stock": 8,
+          "status": "in_stock",
+          "aisle": 14
+        },
+        {
+          "name": "Scary Berry+ LOST MARY MT35K TURBO",
+          "price": 24.99,
+          "stock": 8,
+          "max_stock": 8,
+          "status": "in_stock",
+          "aisle": 15
+        },
+        {
+          "name": "Black Mint+ LOST MARY MT35K TURBO",
+          "price": 24.99,
+          "stock": 8,
+          "max_stock": 8,
+          "status": "in_stock",
+          "aisle": 16
+        },
+        {
+          "name": "Pink Lemonade+ LOST MARY MT35K TURBO",
+          "price": 24.99,
+          "stock": 8,
+          "max_stock": 8,
+          "status": "in_stock",
+          "aisle": 17
+        },
+        {
+          "name": "Rocket Freeze LOST MARY MT35K TURBO",
+          "price": 24.99,
+          "stock": 8,
+          "max_stock": 8,
+          "status": "in_stock",
+          "aisle": 18
+        }
+      ],
+      "updated": "2026-03-25T05:34:44.645677+00:00"
+    }
+  },
+  "generated": "2026-03-25T05:34:44.645781+00:00",
+  "total_locations": 1
+}

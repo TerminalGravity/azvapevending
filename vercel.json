@@ -22,7 +22,7 @@
   "rewrites": [
     {
       "source": "/api/inventory",
-      "destination": "/api/inventory"
+      "destination": "/api/inventory.json"
     }
   ]
 }
